@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import MyLogo from '../assets/mylogo.png';
 import { Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   height: 80px;
   padding: 20px 40px;
   margin: 40px 80px;
@@ -17,8 +18,13 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
+  position: relative;
+
+  @media (max-width: 950px) {
+    padding: 15px 24px;
+    margin: 20px;
+  }
 `;
-const MotionContainer = motion.create(Container)
 
 const Logo = styled.div`
   display: flex;
@@ -43,34 +49,26 @@ const NavMenu = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
+
+  @media (max-width: 950px) {
+    display: none;
+  }
 `;
 
 const MenuItem = styled.li``;
 
 const MenuLink = styled.a`
   text-decoration: none;
-  color: black;
-  transition: color 0.3s ease;
-  padding: 0.5rem 0;
+  color: #111;
+  font-weight: 500;
   font-size: 1.1rem;
-  position: relative;
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #0467d5;
-    transition: width 0.3s ease;
-  }
+  transition: all 0.3s ease;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid transparent;
 
   &:hover {
     color: #0467d5;
-    &::after {
-      width: 100%;
-    }
+    border-bottom: 1px solid #0467d5;
   }
 `;
 
@@ -78,6 +76,10 @@ const ActionGroup = styled.div`
   display: flex;
   align-items: center;
   gap: 1.5rem;
+
+  @media (max-width: 950px) {
+    display: none;
+  }
 `;
 
 const ResumeButton = styled(motion.button)`
@@ -95,12 +97,53 @@ const ResumeButton = styled(motion.button)`
   border: 2px solid transparent;
 
   &:hover {
-    transition: all 0.2 ease;
     transform: scale(1.1);
     background: transparent;
     color: #0467d5;
     border-color: #0467d5;
   }
+`;
+
+const HamBurgerContainer = styled.div`
+  display: none;
+  cursor: pointer;
+
+  @media (max-width: 950px) {
+    display: block;
+  }
+`;
+
+const MobileMenu = styled(motion.div)`
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100vh;
+  backdrop-filter: blur(18px);
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+  padding: 90px 30px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  z-index: 999;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+
+  @media (max-width: 360px) {
+    width: 60%;
+  }
+`;
+
+const Backdrop = styled(motion.div)`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 998;
 `;
 
 const Navbar = () => {
@@ -109,68 +152,116 @@ const Navbar = () => {
   const isHome = location.pathname === '/';
 
   const closeMenu = () => setIsMenuOpen(false);
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   const menuItems = ['Home', 'Me', 'Projects', 'Experience', 'Contact'];
 
   const getLinkHref = (item) => {
     const anchor = item.toLowerCase();
-    return anchor === 'home' ? '/' : (isHome ? `#${anchor}` : `/#${anchor}`);
+    return anchor === 'home' ? '/' : isHome ? `#${anchor}` : `/#${anchor}`;
   };
 
   return (
-    <MotionContainer
-      initial={{ y: -50, opacity: 0, filter: 'blur(5px)' }}
-      animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
-      transition={{ duration: 0.7, ease: 'easeOut' }}
-    >
-      <Logo
-        as={motion.div}
-        initial={{ opacity: 0, x: -30 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.3, duration: 0.5 }}
+    <>
+      <Container
+        initial={{ y: -50, opacity: 0, filter: 'blur(5px)' }}
+        animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
+        transition={{ duration: 0.7, ease: 'easeOut' }}
       >
-        <LogoImage src={MyLogo} />
-        <LogoTitle>Sahil Raza</LogoTitle>
-      </Logo>
+        <Logo
+          as={motion.div}
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+        >
+          <LogoImage src={MyLogo} />
+          <LogoTitle>Sahil Raza</LogoTitle>
+        </Logo>
 
-      <NavMenu
-        as={motion.ul}
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5, duration: 0.5 }}
-      >
-        {menuItems.map((item, index) => (
-          <MenuItem
-            as={motion.li}
-            key={item}
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 + index * 0.1 }}
-          >
-            <MenuLink href={getLinkHref(item)} onClick={closeMenu}>
-              {item}
-            </MenuLink>
-          </MenuItem>
-        ))}
-      </NavMenu>
+        <NavMenu
+          as={motion.ul}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.5 }}
+        >
+          {menuItems.map((item, index) => (
+            <motion.div
+              key={item}
+              initial={{ x: 50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.1 * index }}
+            >
+              <MenuLink href={getLinkHref(item)} onClick={closeMenu}>
+                {item}
+              </MenuLink>
+            </motion.div>
+          ))}
+        </NavMenu>
 
-      <ActionGroup
-        as={motion.div}
-        initial={{ opacity: 0, x: 30 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 1.1, duration: 0.5 }}
-      >
-        <Link style={{ textDecoration: 'none' }} to="/my-resume">
-          <ResumeButton
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ duration: 0.01 }}
-          >
-            Resume
-          </ResumeButton>
-        </Link>
-      </ActionGroup>
-    </MotionContainer>
+        <HamBurgerContainer onClick={toggleMenu}>
+          <Menu size={28} />
+        </HamBurgerContainer>
+
+        <ActionGroup
+          as={motion.div}
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 1.1, duration: 0.5 }}
+        >
+          <Link style={{ textDecoration: 'none' }} to="/my-resume">
+            <ResumeButton
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.01 }}
+            >
+              Resume
+            </ResumeButton>
+          </Link>
+        </ActionGroup>
+      </Container>
+
+      <AnimatePresence>
+        {isMenuOpen && (
+          <>
+            <Backdrop
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={closeMenu}
+            />
+            <MobileMenu
+              initial={{ x: '100%', opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: '100%', opacity: 0 }}
+              transition={{ duration: 0.4, ease: 'easeInOut' }}
+            >
+              <div style={{ alignSelf: 'flex-end', cursor: 'pointer' }} onClick={closeMenu}>
+                <X size={28} />
+              </div>
+              {menuItems.map((item) => (
+                <MenuLink
+                  key={item}
+                  href={getLinkHref(item)}
+                  onClick={closeMenu}
+                  style={{ fontSize: '1.2rem' }}
+                >
+                  {item}
+                </MenuLink>
+              ))}
+              <Link to="/my-resume" style={{textDecoration: "none"}} onClick={closeMenu}>
+                <ResumeButton
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  style={{ width: '100%', justifyContent: 'center' }}
+                >
+                  Resume
+                </ResumeButton>
+              </Link>
+            </MobileMenu>
+          </>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 
