@@ -146,6 +146,22 @@ const Backdrop = styled(motion.div)`
   z-index: 998;
 `;
 
+const RouterLink = styled(Link)`
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid transparent;
+
+  &:hover {
+    color: #0467d5;
+    border-bottom: 1px solid #0467d5;
+  }
+`;
+
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
@@ -158,7 +174,7 @@ const Navbar = () => {
 
   const getLinkHref = (item) => {
     const anchor = item.toLowerCase();
-    return anchor === 'home' ? '/' : isHome ? `#${anchor}` : `/#${anchor}`;
+    return anchor === 'home' ? '/home' : isHome ? `#${anchor}` : `/home#${anchor}`;
   };
 
   return (
@@ -191,9 +207,10 @@ const Navbar = () => {
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.1 * index }}
             >
-              <MenuLink href={getLinkHref(item)} onClick={closeMenu}>
+              <RouterLink to={getLinkHref(item)} onClick={closeMenu}>
                 {item}
-              </MenuLink>
+              </RouterLink>
+
             </motion.div>
           ))}
         </NavMenu>

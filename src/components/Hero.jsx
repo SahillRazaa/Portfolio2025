@@ -34,7 +34,7 @@ const Container = styled(motion.div)`
   overflow: hidden;
 
   @media (max-width: 768px) {
-    height: calc(100vh - 100px);
+    height: 100%;
   }
 `
 
@@ -46,11 +46,11 @@ const HeroContainer = styled.div`
 
   @media (max-width: 1024px) {
     flex-direction: column;
-    padding: 0 6vw 40px;
+    // padding: 0 6vw 40px;
   }
 
   @media (max-width: 768px) {
-    padding: 0 6vw 20px;
+    // padding: 0 6vw 20px;
   }
 `
 
@@ -69,11 +69,8 @@ const HeroLeft = styled.div`
   justify-content: space-between;
 
   @media (max-width: 768px) {
-    padding: 24px;
-  }
-
-  @media (max-width: 480px) {
-    padding: 16px;
+    padding: 20px;
+    padding-bottom: 100px;
   }
 `
 
@@ -223,12 +220,11 @@ const BigName = styled.div`
 
   @media (max-width: 768px) {
     font-size: 10rem;
-    left: -20%;
   }
 
   @media (max-width: 480px) {
-    font-size: 6rem;
-    left: -30%;
+    // font-size: 6rem;
+    left: -5%;
   }
 `
 
@@ -246,7 +242,6 @@ const MyImage = styled.img`
   }
 `
 
-/* === Main Component === */
 const Hero = () => {
   const location = useLocation()
 

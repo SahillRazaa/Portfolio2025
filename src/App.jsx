@@ -11,7 +11,7 @@ function App() {
     <Router>
       <ScrollToTop/>
       <Routes>
-        <Route path='/' element={<Home/>}></Route>
+        <Route path='/home' element={<Home/>}></Route>
         <Route path='/projects' element={<Project/>}></Route>
         <Route path='/projects/:id' element={<SingleProject/>}></Route>
         <Route path='/my-resume' element={<MyResume/>}></Route>

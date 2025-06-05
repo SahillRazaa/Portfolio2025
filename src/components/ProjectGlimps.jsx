@@ -6,15 +6,27 @@ import { useInView } from 'react-intersection-observer'
 import { projectDisplay } from '../utils/data'
 
 const Container = styled(motion.div)`
-  padding: 0 10vw;
+  padding: 2vw 10vw;
   padding-bottom: 2rem;
   position: relative;
+
+  @media (max-width: 900px) { 
+    margin-top: 20px;
+  }
+    
+  @media (max-width: 470px) {
+    padding: 0vw 10vw;
+  }
 `
 
 const ProjectContainer = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 3rem;
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `
 
 const Header = styled(motion.div)`
@@ -22,6 +34,10 @@ const Header = styled(motion.div)`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 4rem;
+
+  @media (max-width: 470px) {
+    margin-bottom: 2rem;
+  }
 `
 
 const SectionTitle = styled(motion.h2)`
@@ -39,6 +55,18 @@ const SectionTitle = styled(motion.h2)`
     height: 4px;
     background: #0467d5;
     border-radius: 2px;
+  }
+
+  @media (max-width: 900px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 550px) {
+    font-size: 1.4rem;
+  }
+
+  @media (max-width: 370px) {
+    font-size: 1.2rem;
   }
 `
 
@@ -61,6 +89,17 @@ const SeeMoreButton = styled(motion.button)`
     background-color: #0a2540;
     transform: translateY(-2px);
   }
+
+  @media (max-width: 550px) {
+    font-size: 0.8rem;
+    padding: 0.8rem 1.5rem;
+  }
+
+  @media (max-width: 370px) {
+    font-size: 0.6rem;
+    padding: 0.6rem 1.3rem;
+  }
+
 `
 
 const ProjectCard = styled(motion.div)`
@@ -92,6 +131,14 @@ const ProjectTitle = styled(motion.h3)`
   font-size: 2rem;
   color: #0a2540;
   margin: 0 0 0.5rem 0;
+
+  @media (max-width: 470px) {
+    font-size: 1.3rem;  
+  }
+
+  @media (max-width: 370px) {
+    font-size: 1.1rem;  
+  }
 `
 
 const ProjectDate = styled(motion.p)`
@@ -99,6 +146,14 @@ const ProjectDate = styled(motion.p)`
   color: #6b7c93;
   margin: 0;
   font-weight: 500;
+
+  @media (max-width: 470px) {
+    font-size: 0.8rem;  
+  }
+
+  @media (max-width: 370px) {
+    font-size: 0.6rem;  
+  }
 `
 
 const ViewButton = styled(motion.button)`
@@ -116,6 +171,11 @@ const ViewButton = styled(motion.button)`
     background-color: #0a2540;
     transform: translateY(-2px);
   }
+  
+  @media (max-width: 470px) {
+    font-size: 0.8rem;  
+    padding: 0.6rem 1.3rem;
+  }
 `
 
 const ImagePlaceholder = styled(motion.img)`
@@ -124,6 +184,10 @@ const ImagePlaceholder = styled(motion.img)`
   border-radius: 24px;
   object-fit: cover;
   margin-top: 1.5rem;
+
+  @media (max-width: 470px) {
+    height: 30vh;  
+  }
 `
 
 const containerVariants = {

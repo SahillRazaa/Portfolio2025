@@ -9,10 +9,9 @@ import Wams from '../assets/brands/WAMS.png';
 
 const brands = [Certimate, Wams];
 
-// Styled Components
 const Container = styled(motion.div)`
   display: flex;
-  padding: 2vw 10vw;
+  padding: 0vw 10vw;
   height: 100%;
   gap: 2vw;
   align-items: stretch;
@@ -26,6 +25,10 @@ const ContentColumn = styled.div`
   gap: 2rem;
   height: 100%;
   max-width: 40vw;
+  
+  @media (max-width: 1100px) {
+    min-width: 100%;
+  }
 `;
 
 const ProjectCard = styled(motion.div)`
@@ -33,6 +36,7 @@ const ProjectCard = styled(motion.div)`
   border-radius: 1.5rem;
   padding: 2rem;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   flex: 1;
   will-change: transform, opacity;
 `;
@@ -60,8 +64,13 @@ const Description = styled(motion.p)`
   font-size: 1rem;
   color: black;
   line-height: 1.75;
+  text-align: justify;
   margin-bottom: 1.5rem;
   will-change: transform, opacity;
+
+  @media (max-width: 470px) {
+    font-size: 0.8rem;
+  }
 `;
 
 const TechTags = styled.div`
@@ -79,6 +88,10 @@ const TechTag = styled(motion.span)`
   font-weight: 500;
   border: 1px solid rgba(0, 0, 0, 0.1);
   will-change: transform, opacity;
+
+  @media (max-width: 470px) {
+    font-size: 0.7rem;
+  }
 `;
 
 const TechScrollContainer = styled.div`
@@ -123,13 +136,11 @@ const VisualizationContainer = styled(motion.div)`
   justify-content: center;
   will-change: transform, opacity;
 
-  @media (max-width: 1024px) {
-    width: 100%;
-    max-width: none;
+  @media (max-width: 1100px) {
+    display: none;
   }
 `;
 
-// Framer Motion Variants
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -259,7 +270,7 @@ const Myself = () => {
         <ProjectCard variants={cardVariants}>
           <Title variants={titleVariants}>Current Project</Title>
           <Description variants={descriptionVariants}>
-            Building a modern CMT (Conference Management Tool) alternative under Certimate Infotech—focused on transforming the academic conference workflow with a clean UI, efficient automations, and seamless communication tools.
+            Building a modern CMT (Conference Management Tool) alternative under Certimate Infotech, focused on transforming the academic conference workflow with a clean UI, efficient automations, and seamless communication tools.
             The platform includes bulk certificate generation, automated email dispatch, and robust form handling. Designed for scalability, security, and real-time collaboration, it modernizes outdated legacy systems.
           </Description>
           <TechTags>

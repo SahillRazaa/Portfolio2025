@@ -1,12 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { motion, useAnimation } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
-import ReactImage from '../assets/react.png';
-import NodeImage from '../assets/node.png';
-import MongoDbImage from '../assets/mongodb.png';
-import { achievements } from '../utils/data';
+import { achievements } from '../utils/data'
 
 const Container = styled(motion.div)`
   display: flex;
@@ -15,7 +12,7 @@ const Container = styled(motion.div)`
   gap: 2vw;
   align-items: stretch;
   justify-content: center;
-`;
+`
 
 const AchievementCard = styled(motion.div)`
   background: rgba(255, 255, 255, 0.6);
@@ -24,7 +21,7 @@ const AchievementCard = styled(motion.div)`
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
   flex: 1;
-`;
+`
 
 const Title = styled(motion.h3)`
   font-size: 1.5rem;
@@ -42,7 +39,7 @@ const Title = styled(motion.h3)`
     height: 3px;
     background-color: #0467d5;
   }
-`;
+`
 
 const AchievementItem = styled(motion.div)`
   display: flex;
@@ -54,7 +51,13 @@ const AchievementItem = styled(motion.div)`
   &:last-child {
     border-bottom: none;
   }
-`;
+
+  @media (max-width: 1000px) {
+    flex-direction : column;
+    align-items: start;
+    gap: 10px;
+  }
+`
 
 const LogoWrapper = styled(motion.div)`
   flex-shrink: 0;
@@ -73,7 +76,17 @@ const LogoWrapper = styled(motion.div)`
     height: 100%;
     object-fit: contain;
   }
-`;
+
+  @media (max-width: 1000px) {
+    width: 100px;
+    height: 100px;
+  }
+
+  @media (max-width: 410px) {
+    width: 80px;
+    height: 80px;
+  }
+`
 
 const InfoSection = styled(motion.div)`
   flex: 1;
@@ -85,14 +98,38 @@ const InfoSection = styled(motion.div)`
     font-size: 1.2rem;
     color: #0467d5;
     margin: 0 0 0.3rem 0;
+
+    @media (max-width: 1000px) {
+      font-size: 1.6rem;
+    }
+
+    @media (max-width: 560px) {
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 410px) {
+      font-size: 0.9rem;
+    }
   }
 
   p {
     font-size: 0.95rem;
     color: #6b7c93;
     margin: 0 0 0.3rem 0;
+
+    @media (max-width: 1000px) {
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 560px) {
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 410px) {
+      font-size: 0.7rem;
+    }
   }
-`;
+`
 
 const DateSection = styled(motion.div)`
   flex-shrink: 0;
@@ -100,7 +137,11 @@ const DateSection = styled(motion.div)`
   color: #6b7c93;
   text-align: right;
   min-width: 100px;
-`;
+
+  @media (max-width: 1000px) {
+    text-align: left;
+  }
+`
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -157,7 +198,7 @@ const Achievement = () => {
     triggerOnce: false,
   })
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (inView) {
       controls.start('visible')
     }
@@ -169,6 +210,7 @@ const Achievement = () => {
       variants={containerVariants}
       initial="hidden"
       animate={controls}
+      id="achievement"
     >
       <AchievementCard variants={achievementCardVariants}>
         <Title variants={titleVariants}>Achievements</Title>
@@ -193,4 +235,4 @@ const Achievement = () => {
   )
 }
 
-export default Achievement;
+export default Achievement

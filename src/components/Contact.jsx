@@ -28,6 +28,18 @@ const Title = styled(motion.h2)`
     background: #0467d5;
     border-radius: 2px;
   }
+
+  @media (max-width: 900px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 550px) {
+    font-size: 1.4rem;
+  }
+
+  @media (max-width: 370px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const Card = styled(motion.div)`

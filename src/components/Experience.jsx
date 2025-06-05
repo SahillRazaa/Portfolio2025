@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { motion, useAnimation } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
@@ -54,6 +54,12 @@ const ExperienceItem = styled(motion.div)`
   &:last-child {
     border-bottom: none;
   }
+
+  @media (max-width: 1000px) {
+    flex-direction : column;
+    align-items: start;
+    gap: 10px;
+  }
 `;
 
 const LogoWrapper = styled(motion.div)`
@@ -73,6 +79,16 @@ const LogoWrapper = styled(motion.div)`
     height: 100%;
     object-fit: contain;
   }
+
+  @media (max-width: 1000px) {
+    width: 100px;
+    height: 100px;
+  }
+  
+  @media (max-width: 410px) {
+    width: 80px;
+    height: 80px;
+  }
 `;
 
 const InfoSection = styled(motion.div)`
@@ -85,6 +101,18 @@ const InfoSection = styled(motion.div)`
     font-size: 1.2rem;
     color: #0a2540;
     margin: 0 0 0.3rem 0;
+
+    @media (max-width: 1000px) {
+      font-size: 1.6rem;
+    }
+
+    @media (max-width: 560px) {
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 410px) {
+      font-size: 0.9rem;
+    }
   }
 
   p {
@@ -92,12 +120,33 @@ const InfoSection = styled(motion.div)`
     color: #0467d5;
     margin: 0 0 0.3rem 0;
     font-weight: 500;
+
+    @media (max-width: 1000px) {
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 560px) {
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 410px) {
+      font-size: 0.7rem;
+    }
   }
 
   span {
     font-size: 0.95rem;
     color: #6b7c93;
     width: 90%;
+    text-align: justify;
+
+    @media (max-width: 560px) {
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 410px) {
+      font-size: 0.6rem;
+    }
   }
 `;
 
@@ -114,6 +163,10 @@ const RightContatiner = styled(motion.div)`
   display: flex;
   align-items: end;
   flex-direction: column;
+
+  @media (max-width: 1000px) {
+    align-items: start;
+  }
 `
 
 const Type = styled(motion.p)`
@@ -175,7 +228,7 @@ const Experience = () => {
     triggerOnce: false,
   })
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (inView) {
       controls.start('visible')
     }

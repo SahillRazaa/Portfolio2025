@@ -100,6 +100,30 @@ const TechLogos = styled(motion.div)`
       filter: grayscale(0);
       opacity: 1;
     }
+
+    @media (max-width: 800px) {
+      height: 3rem;
+    }
+
+    @media (max-width: 500px) {
+      height: 1.5rem;
+    }
+
+    @media (max-width: 370px) {
+      height: 1.2rem;
+    }
+  }
+
+  @media (max-width: 800px) {
+    gap: 2rem 3rem;
+  }
+
+  @media (max-width: 500px) {
+    gap: 1.5rem 2rem;
+  }
+
+  @media (max-width: 500px) {
+    gap: 1.2rem 2rem;
   }
 `;
 
