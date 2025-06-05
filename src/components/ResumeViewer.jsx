@@ -36,6 +36,18 @@ const SectionTitle = styled(motion.h2)`
     background: #0467d5;
     border-radius: 2px;
   }
+
+  @media (max-width: 900px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 550px) {
+    font-size: 1.4rem;
+  }
+
+  @media (max-width: 370px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const DownloadButton = styled(motion.a)`
@@ -54,6 +66,16 @@ const DownloadButton = styled(motion.a)`
   &:hover {
     background-color: #0a2540;
     transform: translateY(-2px);
+  }
+
+  @media (max-width: 550px) {
+    font-size: 0.8rem;
+    padding: 0.8rem 1.5rem;
+  }
+
+  @media (max-width: 370px) {
+    font-size: 0.6rem;
+    padding: 0.6rem 1.3rem;
   }
 `;
 

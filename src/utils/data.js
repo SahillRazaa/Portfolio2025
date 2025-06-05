@@ -522,7 +522,7 @@ const projectDetails = [
     headline: 'Portfolio Website',
     description:
       'Personal portfolio website built in React + Vite. Includes sections like Journey, Projects, Skills, Testimonials, and a toggle for dark mode. Features a live Resume download and filters in projects.',
-    // github: "https://github.com/dummy/portfolio",
+    github: "https://sahilraza.onrender.com",
     problemStatement: "Generic portfolio templates often lack fluid interactions, personalization, and filtering capabilities, making them less effective in representing dynamic project-based growth and individuality.",
     challenges: [
       'Designing an aesthetic yet functional UI with smooth animations and responsiveness while keeping the performance lightweight, especially when using dynamic filtering and transitions.',
@@ -554,6 +554,7 @@ const projectDetails = [
   {
     id: 10,
     headline: 'ChatNChill - Real-Time Chat',
+    github: 'https://github.com/SahillRazaa/chatNchill_frontend',
     description:
       'ChatNChill is a real-time one-to-one chat application built with the MERN stack and WebSocket technology. It allows users to instantly message each other, showing online status and displaying the last message exchanged for a smooth and intuitive chat experience.',
     problemStatement: "Most simple chat apps struggle with real-time updates, causing delays in message delivery or inaccurate online status indicators. Users also find it hard to keep track of their recent conversations without a clear last-message preview.",

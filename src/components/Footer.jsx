@@ -23,7 +23,7 @@ const FooterContainer = styled(motion.footer)`
     padding: 10px 20px;
     margin: 20px;
     border-radius: 20px;
-    gap: 0.5rem;
+    gap: 1rem;
   }
 `;
 
@@ -31,6 +31,10 @@ const LeftSection = styled(motion.div)`
   display: flex;
   align-items: center;
   gap: 10px;
+  
+  @media (max-width: 860px) {
+    display: none;
+  }
 `;
 
 const LogoImage = styled(motion.img)`

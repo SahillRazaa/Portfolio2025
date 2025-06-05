@@ -174,7 +174,7 @@ const Navbar = () => {
 
   const getLinkHref = (item) => {
     const anchor = item.toLowerCase();
-    return anchor === 'home' ? '/home' : isHome ? `#${anchor}` : `/home#${anchor}`;
+    return anchor === 'home' ? '/' : isHome ? `#${anchor}` : `/home#${anchor}`;
   };
 
   return (

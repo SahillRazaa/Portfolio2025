@@ -8,6 +8,10 @@ import { motion } from 'framer-motion';
 const Wrapper = styled(motion.div)`
   padding: 0rem 10vw;
   margin: auto;
+
+  @media (max-width: 768px) {
+    // padding: 0rem 5vw;
+  }
 `;
 
 const Card = styled(motion.div)`
@@ -20,6 +24,10 @@ const Card = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 2rem;
+
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
 `;
 
 const Header = styled(motion.div)`
@@ -27,6 +35,10 @@ const Header = styled(motion.div)`
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 2rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const LeftSection = styled(motion.div)`
@@ -43,11 +55,19 @@ const Title = styled(motion.h1)`
   font-size: 3rem;
   margin: 0;
   margin-bottom: 10px;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 const Description = styled(motion.p)`
   font-size: 1.2rem;
   margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 const ButtonGroup = styled(motion.div)`
@@ -66,6 +86,11 @@ const ButtonGroup = styled(motion.div)`
     &:disabled {
       background-color: #ccc;
       cursor: not-allowed;
+    }
+
+    @media (max-width: 768px) {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.8rem;
     }
   }
 `;
@@ -95,6 +120,11 @@ const GitHubButton = styled(motion.a)`
     box-shadow: 0px 0px 5px 1px #0467d5;
     border-color: #0467d5;
   }
+
+  @media (max-width: 768px) {
+    padding: 8px 18px;
+    font-size: 0.8rem;
+  }
 `;
 
 const SectionTitle = styled(motion.h2)`
@@ -113,6 +143,10 @@ const SectionTitle = styled(motion.h2)`
     height: 3px;
     background-color: #0467d5;
   }
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const FeatureList = styled(motion.ul)`
@@ -130,6 +164,10 @@ const FeatureList = styled(motion.ul)`
     background: #e6f5ea;
     padding: 0.5rem 1rem;
     border-radius: 12px;
+
+    @media (max-width: 768px) {
+      font-size: 0.8rem;
+    }
   }
 `;
 
@@ -153,6 +191,10 @@ const MiddleContainer = styled(motion.div)`
   align-items: stretch;
   gap: 20px;
   margin: 20px 0px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `
 
 const MidLeft = styled(motion.div)`
@@ -166,6 +208,7 @@ const MidLeft = styled(motion.div)`
   display: flex;
   flex-direction: column;
   padding: 20px 40px;
+
 `
 
 const MidMid = styled(motion.div)`
@@ -173,6 +216,10 @@ const MidMid = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  @media (max-width: 768px) {
+    gap: 10px;
+  }
 `
 
 const MidRight = styled(motion.div)`
@@ -180,6 +227,10 @@ const MidRight = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  @media (max-width: 768px) {
+    gap: 10px;
+  }
 `
 
 const MidCard = styled(motion.div)`
@@ -191,6 +242,7 @@ const MidCard = styled(motion.div)`
   border: 1px solid rgb(201, 218, 237);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   padding: 10px 40px;
+
 `
 
 const MidTitle = styled(motion.h3)`
@@ -209,6 +261,10 @@ const MidTitle = styled(motion.h3)`
     height: 3px;
     background-color: #0467d5;
   }
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
 `
 
 const MidDesc = styled(motion.p)`
@@ -216,12 +272,20 @@ const MidDesc = styled(motion.p)`
   color: black;
   line-height: 1.75;
   margin-bottom: 1.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+  }
 `;
 
 const Image = styled(motion.img)`
   margin-top: 2rem;
   width: 100%;
   border-radius: 16px;
+
+  @media (max-width: 768px) {
+    margin-top: 1rem;
+  }
 `;
 
 const NoProjects = styled(motion.div)`
@@ -233,6 +297,10 @@ const NoProjects = styled(motion.div)`
   p {
     font-size: 1.3rem;
     font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    height: calc(100vh - 240px);
   }
 `;
 
@@ -362,21 +430,21 @@ const DetailedProject = ({ projectId }) => {
               <MidTitle variants={childVariants}>Impact</MidTitle>
               <MidDesc variants={childVariants}>{project.impact}</MidDesc>
             </MidCard>
-        </MidRight>
-      </MiddleContainer>
-      {project.projectImages.map((item, index) => (
-        <Image 
-          src={item} 
-          alt={`Project Preview ${index}`} 
-          key={index}
-          variants={childVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ delay: index * 0.1 }}
-        />
-      ))}
-    </Wrapper>
+          </MidRight>
+        </MiddleContainer>
+        {project.projectImages.map((item, index) => (
+          <Image 
+            src={item} 
+            alt={`Project Preview ${index}`} 
+            key={index}
+            variants={childVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ delay: index * 0.1 }}
+          />
+        ))}
+      </Wrapper>
   );
 };
 

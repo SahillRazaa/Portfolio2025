@@ -8,6 +8,7 @@ const ModalBackground = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px;
   z-index: 999;
 `
 

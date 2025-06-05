@@ -9,12 +9,20 @@ const Container = styled(motion.div)`
   padding: 0 10vw;
   padding-bottom: 2rem;
   position: relative;
+
+  @media (max-width: 768px) {
+    // padding: 0 vw;
+  }
 `
 
 const ProjectContainer = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 3rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `
 
 const Header = styled(motion.div)`
@@ -22,6 +30,11 @@ const Header = styled(motion.div)`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2.5rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `
 
 const SectionTitle = styled(motion.h2)`
@@ -29,7 +42,7 @@ const SectionTitle = styled(motion.h2)`
   color: #0a2540;
   margin: 0;
   position: relative;
-  
+
   &::after {
     content: '';
     position: absolute;
@@ -39,6 +52,10 @@ const SectionTitle = styled(motion.h2)`
     height: 3px;
     background: #0467d5;
     border-radius: 2px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
   }
 `
 
@@ -56,10 +73,15 @@ const SeeMoreButton = styled(motion.button)`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  
+
   &:hover {
     background-color: #0a2540;
     transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
   }
 `
 
@@ -67,6 +89,11 @@ const Controls = styled(motion.div)`
   display: flex;
   align-items: center;
   gap: 1.5rem;
+
+  @media (max-width: 768px) {
+    gap: 1rem;
+    margin-top: 2rem;
+  }
 `
 
 const ToggleGroup = styled(motion.div)`
@@ -74,6 +101,10 @@ const ToggleGroup = styled(motion.div)`
   background: #f0f4f8;
   border-radius: 8px;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+  }
 `
 
 const ToggleButton = styled(motion.button)`
@@ -88,6 +119,11 @@ const ToggleButton = styled(motion.button)`
   &:hover {
     background: #0467d5;
     color: #fff;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
   }
 `
 
@@ -105,6 +141,11 @@ const FilterButton = styled(motion.button)`
     background-color: #0a2540;
     transform: translateY(-2px);
   }
+
+  @media (max-width: 768px) {
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+  }
 `
 
 const ProjectCard = styled(motion.div)`
@@ -113,10 +154,14 @@ const ProjectCard = styled(motion.div)`
   padding: 2rem;
   transition: all 0.3s ease;
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  
+
   &:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
   }
 `
 
@@ -125,6 +170,10 @@ const TopSection = styled(motion.div)`
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 1.5rem;
+
+  @media (max-width: 768px) {
+    align-items: flex-start;
+  }
 `
 
 const InfoSection = styled(motion.div)`
@@ -136,6 +185,10 @@ const ProjectTitle = styled(motion.h3)`
   font-size: 2rem;
   color: #0a2540;
   margin: 0 0 0.5rem 0;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `
 
 const ProjectDate = styled(motion.p)`
@@ -143,6 +196,10 @@ const ProjectDate = styled(motion.p)`
   color: #6b7c93;
   margin: 0;
   font-weight: 500;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
 `
 
 const ViewButton = styled(motion.button)`
@@ -158,10 +215,15 @@ const ViewButton = styled(motion.button)`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  
+
   &:hover {
     background-color: #0a2540;
     transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
   }
 `
 
@@ -171,18 +233,26 @@ const ImagePlaceholder = styled(motion.img)`
   border-radius: 24px;
   object-fit: cover;
   margin-top: 1.5rem;
+
+  @media (max-width: 768px) {
+    height: 30vh;
+  }
 `
 
 const NoProjects = styled(motion.div)`
-    height: calc(100vh - 320px - 120px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: calc(100vh - 320px - 120px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    p {
-        font-size: 1.3rem;
-        font-weight: 500;
-    }
+  p {
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    height: calc(100vh - 240px - 100px);
+  }
 `
 
 const containerVariants = {
@@ -220,80 +290,80 @@ const cardVariants = {
 }
 
 const AllProjects = () => {
-    const [activeType, setActiveType] = useState('Personal');
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [filters, setFilters] = useState({
-      sortBy: 'recent',
-      techType: 'all',
-      difficulty: 'all',
-    });    
-  
-    const filteredProjects = projectDisplay
-      .filter(p => p.type === activeType)
-      .filter(p => filters.techType === 'all' || p.techType === filters.techType)
-      .filter(p => filters.difficulty === 'all' || p.difficulty === filters.difficulty)
-      .sort((a, b) => {
-        if (filters.sortBy === 'recent') return new Date(b.date) - new Date(a.date);
-        if (filters.sortBy === 'leastRecent') return new Date(a.date) - new Date(b.date);
-        if (filters.sortBy === 'lengthy') return b.length - a.length;
-        if (filters.sortBy === 'quicky') return a.length - b.length;
-        return 0;
-      });
-  
-    return (
-      <Container
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <Header variants={childVariants}>
-          <SectionTitle variants={childVariants}>All Projects</SectionTitle>
-          <Controls variants={childVariants}>
-            <ToggleGroup>
-              <ToggleButton 
-                active={activeType === 'Personal'} 
-                onClick={() => setActiveType('Personal')}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Personal
-              </ToggleButton>
-              <ToggleButton 
-                active={activeType === 'Company'} 
-                onClick={() => setActiveType('Company')}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Company
-              </ToggleButton>
-              <ToggleButton 
-                active={activeType === 'Hackathon'} 
-                onClick={() => setActiveType('Hackathon')}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Hackathon
-              </ToggleButton>
-            </ToggleGroup>
-            <FilterButton 
-              onClick={() => setIsModalOpen(true)}
+  const [activeType, setActiveType] = useState('Personal');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [filters, setFilters] = useState({
+    sortBy: 'recent',
+    techType: 'all',
+    difficulty: 'all',
+  });
+
+  const filteredProjects = projectDisplay
+    .filter(p => p.type === activeType)
+    .filter(p => filters.techType === 'all' || p.techType === filters.techType)
+    .filter(p => filters.difficulty === 'all' || p.difficulty === filters.difficulty)
+    .sort((a, b) => {
+      if (filters.sortBy === 'recent') return new Date(b.date) - new Date(a.date);
+      if (filters.sortBy === 'leastRecent') return new Date(a.date) - new Date(b.date);
+      if (filters.sortBy === 'lengthy') return b.length - a.length;
+      if (filters.sortBy === 'quicky') return a.length - b.length;
+      return 0;
+    });
+
+  return (
+    <Container
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <Header variants={childVariants}>
+        <SectionTitle variants={childVariants}>All Projects</SectionTitle>
+        <Controls variants={childVariants}>
+          <ToggleGroup>
+            <ToggleButton
+              active={activeType === 'Personal'}
+              onClick={() => setActiveType('Personal')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Filter
-            </FilterButton>
-          </Controls>
-        </Header>
-  
-        {filteredProjects.length !== 0 ?
+              Personal
+            </ToggleButton>
+            <ToggleButton
+              active={activeType === 'Company'}
+              onClick={() => setActiveType('Company')}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Company
+            </ToggleButton>
+            <ToggleButton
+              active={activeType === 'Hackathon'}
+              onClick={() => setActiveType('Hackathon')}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Hackathon
+            </ToggleButton>
+          </ToggleGroup>
+          <FilterButton
+            onClick={() => setIsModalOpen(true)}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Filter
+          </FilterButton>
+        </Controls>
+      </Header>
+
+      {filteredProjects.length !== 0 ?
         <ProjectContainer
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
           {filteredProjects.reverse().map((project, index) => (
-            <ProjectCard 
-              key={project.id} 
+            <ProjectCard
+              key={project.id}
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
@@ -305,8 +375,8 @@ const AllProjects = () => {
                   <ProjectTitle variants={childVariants}>{project.title}</ProjectTitle>
                   <ProjectDate variants={childVariants}>{project.duration}</ProjectDate>
                 </InfoSection>
-                <Link style={{textDecoration: "none"}} to={`/projects/${project.id}`}>
-                  <ViewButton 
+                <Link style={{ textDecoration: "none" }} to={`/projects/${project.id}`}>
+                  <ViewButton
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -314,8 +384,8 @@ const AllProjects = () => {
                   </ViewButton>
                 </Link>
               </TopSection>
-              <ImagePlaceholder 
-                src={project.image} 
+              <ImagePlaceholder
+                src={project.image}
                 variants={childVariants}
               />
             </ProjectCard>
@@ -323,18 +393,17 @@ const AllProjects = () => {
         </ProjectContainer>
         :
         <NoProjects variants={childVariants}>
-            <p>No projects Found.</p>
+          <p>No projects Found.</p>
         </NoProjects>}
-  
-        {isModalOpen && (
-          <FilterModal
-            onClose={() => setIsModalOpen(false)}
-            filters={filters}
-            setFilters={setFilters}
-          />
-        )}
-      </Container>
-    );
-  }
-  
+      {isModalOpen && (
+        <FilterModal
+          onClose={() => setIsModalOpen(false)}
+          filters={filters}
+          setFilters={setFilters}
+        />
+      )}
+    </Container>
+  );
+};
+
 export default AllProjects;
