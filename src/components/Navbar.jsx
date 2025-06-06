@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import MyLogo from '../assets/mylogo.png';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
@@ -167,6 +167,8 @@ const Navbar = () => {
   const location = useLocation();
   const isHome = location.pathname === '/';
 
+  const navigate = useNavigate();
+
   const closeMenu = () => setIsMenuOpen(false);
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
@@ -189,6 +191,8 @@ const Navbar = () => {
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
+
+          onClick={() => navigate('/')}
         >
           <LogoImage src={MyLogo} />
           <LogoTitle>Sahil Raza</LogoTitle>
