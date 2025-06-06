@@ -107,8 +107,8 @@ const projectDisplay = [
   {
     id: 1,
     title: 'CodeTrace',
-    date: '2024-04-01',
-    duration: 'Apr 2024',
+    date: '2025-04-01', // Apr, 2024
+    duration: 'Apr, 2025',
     image: Project1,
     type: 'Hackathon',
     techType: 'React',
@@ -118,8 +118,8 @@ const projectDisplay = [
   {
     id: 2,
     title: 'Plantify Mobile',
-    date: '2024-12-01',
-    duration: 'Dec 2024 - Jan 2025',
+    date: '2024-12-01', // Dec, 2024
+    duration: 'Dec, 2024 - Jan, 2025',
     image: Project2,
     type: 'Personal',
     techType: 'Flutter',
@@ -129,8 +129,8 @@ const projectDisplay = [
   {
     id: 3,
     title: 'Plantify Web',
-    date: '2024-12-01',
-    duration: 'Dec 2024 - Jan 2025',
+    date: '2024-12-01', // Dec, 2024
+    duration: 'Dec, 2024 - Jan, 2025',
     image: Project3,
     type: 'Personal',
     techType: 'React',
@@ -140,8 +140,8 @@ const projectDisplay = [
   {
     id: 4,
     title: 'WAMS 2025',
-    date: '2024-03-01',
-    duration: 'Mar 2024 - Present',
+    date: '2024-03-01', // Mar, 2024
+    duration: 'Mar, 2024 - May, 2025',
     image: Project4,
     type: 'Company',
     techType: 'React',
@@ -151,8 +151,8 @@ const projectDisplay = [
   {
     id: 5,
     title: 'Online Ludo',
-    date: '2024-12-01',
-    duration: 'Dec 2024',
+    date: '2024-12-01', // Dec, 2024
+    duration: 'Dec, 2024',
     image: Project5,
     type: 'Personal',
     techType: 'React',
@@ -162,8 +162,8 @@ const projectDisplay = [
   {
     id: 6,
     title: 'Tourism Insights India',
-    date: '2024-10-01',
-    duration: 'Oct 2024 - Nov 2024',
+    date: '2024-10-01', // Oct, 2024
+    duration: 'Oct, 2024 - Nov, 2024',
     image: Project6,
     type: 'Personal',
     techType: 'Python',
@@ -173,8 +173,8 @@ const projectDisplay = [
   {
     id: 7,
     title: 'Soul Healer',
-    date: '2024-07-01',
-    duration: 'Jul 2024 - Sep 2024',
+    date: '2024-07-01', // Jul, 2024
+    duration: 'Jul, 2024 - Sep, 2024',
     image: Project7,
     type: 'Personal',
     techType: 'Flutter',
@@ -184,8 +184,8 @@ const projectDisplay = [
   {
     id: 8,
     title: 'SahilShop',
-    date: '2023-11-01',
-    duration: 'Nov 2023 - Jan 2024',
+    date: '2023-11-01', // Nov, 2023
+    duration: 'Nov, 2023 - Jan, 2024',
     image: Project8,
     type: 'Personal',
     techType: 'React',
@@ -195,8 +195,8 @@ const projectDisplay = [
   {
     id: 9,
     title: 'My Portfolio',
-    date: '2025-05-01',
-    duration: 'May 2025 - Present',
+    date: '2025-05-01', // May, 2025
+    duration: 'May, 2025 - June, 2025',
     image: Project9,
     type: 'Personal',
     techType: 'React',
@@ -206,25 +206,25 @@ const projectDisplay = [
   {
     id: 10,
     title: 'ChatNChill',
-    date: '2025-03-01',
-    duration: 'Mar 2025',
+    date: '2025-03-01', // Mar, 2025
+    duration: 'Mar, 2025',
     image: Project10,
     type: 'Personal',
     techType: 'React',
     difficulty: 'Medium',
     length: 30,
   },
-  // {
-  //   id: 11,
-  //   title: 'Ekaura',
-  //   date: '2024-02-01',
-  //   duration: 'Feb 2024 - Mar 2024',
-  //   image: Project11,
-  //   type: 'Company',
-  //   techType: 'Wix',
-  //   difficulty: 'Easy',
-  //   length: 18,
-  // },
+  {
+    id: 11,
+    title: 'Ekaura',
+    date: '2024-02-01', // Feb, 2024
+    duration: 'Feb, 2024 - Mar, 2024',
+    image: Project11,
+    type: 'Company',
+    techType: 'Wix',
+    difficulty: 'Easy',
+    length: 18,
+  },
 ];
 
 const projectDetails = [
@@ -540,10 +540,7 @@ const projectDetails = [
     ],
     techstack: [
       ReactImage,
-      NodeImage,
-      NodeImage,
-      NodeImage,
-      NodeImage,
+      JavaScriptImage,
     ],
     projectImages: [
       ProjectImage9_1,
