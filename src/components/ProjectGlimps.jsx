@@ -262,7 +262,7 @@ const ProjectGlimps = () => {
       </Header>
 
       <ProjectContainer variants={containerVariants}>
-        {projectDisplay.slice(0, 2).map((project, index) => (
+        {[...projectDisplay].slice(projectDisplay.length-3, projectDisplay.length-1).reverse().map((project, index) => (
           <ProjectCard
             key={project.id}
             variants={projectCardVariants}

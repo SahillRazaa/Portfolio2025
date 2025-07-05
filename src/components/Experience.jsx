@@ -244,7 +244,7 @@ const Experience = () => {
     >
       <ProjectCard variants={projectCardVariants}>
         <Title variants={titleVariants}>Experience</Title>
-        {experience.map((item, index) => (
+        {[...experience].reverse().map((item, index) => (
           <ExperienceItem
             key={item.id}
             variants={experienceItemVariants}

@@ -214,7 +214,7 @@ const Achievement = () => {
     >
       <AchievementCard variants={achievementCardVariants}>
         <Title variants={titleVariants}>Achievements</Title>
-        {achievements.map((item, index) => (
+        {[...achievements].reverse().map((item, index) => (
           <AchievementItem
             key={item.id}
             variants={achievementItemVariants}

@@ -342,7 +342,7 @@ const AllProjects = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Hackathon
+              Hackathon / Assignment
             </ToggleButton>
           </ToggleGroup>
           <FilterButton
@@ -361,7 +361,7 @@ const AllProjects = () => {
           initial="hidden"
           animate="visible"
         >
-          {filteredProjects.reverse().map((project, index) => (
+          {filteredProjects.map((project, index) => (
             <ProjectCard
               key={project.id}
               variants={cardVariants}

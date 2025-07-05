@@ -6,8 +6,9 @@ import { useInView } from 'react-intersection-observer';
 
 import Certimate from '../assets/brands/certimate.png';
 import Wams from '../assets/brands/WAMS.png';
+import IIITDMK from '../assets/brands/iiitdm_logo.png'
 
-const brands = [Certimate, Wams];
+const brands = [IIITDMK, Certimate, Wams];
 
 const Container = styled(motion.div)`
   display: flex;
@@ -267,23 +268,24 @@ const Myself = () => {
       id='me'
     >
       <ContentColumn>
-        <ProjectCard variants={cardVariants}>
-          <Title variants={titleVariants}>Current Project</Title>
+      <ProjectCard variants={cardVariants}>
+          <Title variants={titleVariants}>Hostel Management System</Title>
           <Description variants={descriptionVariants}>
-            Building a modern CMT (Conference Management Tool) alternative under Certimate Infotech, focused on transforming the academic conference workflow with a clean UI, efficient automations, and seamless communication tools.
-            The platform includes bulk certificate generation, automated email dispatch, and robust form handling. Designed for scalability, security, and real-time collaboration, it modernizes outdated legacy systems.
+            Currently building a full-stack hostel portal for my own college something the admin staff can actually use to manage everything from student room allotments to fee records, buildings, and wardens.
+            The system is being built from the ground up with a React + Vite dashboard, backed by a Node.js server and PostgreSQL database using Sequelize. I’ve already designed and integrated 10+ relational tables (and counting), covering key hostel workflows.
+            <br /><br />
+            It includes secure role-based access, so different users, from wardens to the Super Admin can log in and manage only what they’re supposed to. It's one of the biggest real-world apps I’ve worked on so far, and it's teaching me a lot about structuring large-scale backend logic and database relationships.
           </Description>
           <TechTags>
             {[
-              'React.js',
+              'React + Vite',
               'Node.js',
               'Express.js',
-              'MySQL',
-              'VPS Deployment',
-              'Docxtemplater',
-              'Brevo API',
-              'JWT',
-              'Multer',
+              'PostgreSQL',
+              'Sequelize ORM',
+              'JWT Auth',
+              'RBAC',
+              'Admin Panel',
             ].map((tech, i) => (
               <TechTag key={tech} custom={i} variants={tagVariants}>
                 {tech}

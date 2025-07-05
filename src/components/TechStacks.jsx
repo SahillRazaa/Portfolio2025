@@ -20,6 +20,7 @@ import CssImage from '../assets/css.png';
 import JavaScriptImage from '../assets/javascript.png';
 import DartImage from '../assets/dart.png';
 import MySqlImage from '../assets/mysql.png';
+import PostgresImage from '../assets/postgresql.png';
 
 const techStack = [
   ReactImage,
@@ -30,6 +31,7 @@ const techStack = [
   PostmanImage,
   PythonImage,
   MySqlImage,
+  PostgresImage,
   GithubImage,
   CPlusImage,
   FigmaImage,

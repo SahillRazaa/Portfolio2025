@@ -6,7 +6,7 @@ import { toolbarPlugin } from '@react-pdf-viewer/toolbar';
 import { getFilePlugin } from '@react-pdf-viewer/get-file';
 import '@react-pdf-viewer/core/lib/styles/index.css';
 
-const MyResume = '/assets/Sahil_Raza_Ansari_June_2025.pdf';
+const MyResume = '/assets/Sahil_Raza_Ansari_Resume.pdf';
 
 const ResumeSection = styled(motion.div)`
   padding: 0 10vw;
